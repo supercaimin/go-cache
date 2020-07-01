@@ -7,7 +7,7 @@ import (
 
 func TestCreate(t *testing.T) {
 	driver := new(MemDriver)
-	c := NewCache(driver, 11)
+	c := New(driver, 11, "3MB")
 
 	c.Set("test", "343435", 1)
 	v, _ := c.Get("test")
@@ -16,5 +16,7 @@ func TestCreate(t *testing.T) {
 	time.Sleep(time.Duration(2) * time.Second)
 	vv, _ := c.Get("test")
 	t.Log(vv)
+
+	c.SetMaxMemory("1GB")
 
 }

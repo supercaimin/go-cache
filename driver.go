@@ -15,4 +15,9 @@ type Driver interface {
 	Flush() bool
 	// 返回所有的key 多少
 	Keys() int64
+
+	// 设置最大内存
+	SetMaxMemory(size int64)
+
+	SetDefaultExpiration(expire time.Duration)
 }
